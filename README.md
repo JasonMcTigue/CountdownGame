@@ -1,5 +1,12 @@
 # CountdownGame
 
+|  Name |      Jason McTigue | 
+|----------|:-------------:|
+| Id Number|  G00312233 |
+| Subject |    Theory Of Algorithms   | 
+| Lecturer | Ian McLoughlin |
+| Language | Racket |
+
 ## How to run
 Download (Racket)[https://download.racket-lang.org/] and install it on your machine.
 
@@ -7,6 +14,35 @@ Open Dr.Racket
 ....
 
 ## How it works
+
+####  **Rules**
+
+- Players have to combine six selected numbers (using just the four basic arithmetic operators) to get as close as possible to a randomly generated total.
+
+- Six numbers are randomly selected from two lists consisting of twenty-four numbers.
+
+- There are two groups: Large Numbers and Small Numbers.
+
+- There are four numbers in the large set { 25 , 50 , 75 , 100 }
+
+- There are twenty numbers in the small set, two each of the numbers 1-10
+{ 1 , 1 , 2 , 2 , 3 , 3 , 4 , 4 , 5 , 5 , 6 , 6 , 7 , 7 , 8 , 8 , 9 , 9 , 10 , 10 }
+
+- The player selects as many numbers as desired (unseen) from the large set (between none and all four), and the balance are pulled from the small set to make six numbers in total.
+
+- A random three-digit target number is then randomly generated.
+
+- The player is then given 30 seconds to get as close as possible to the chosen target by using just the four basic arithmetic operators + - × ÷
+
+- Not all the digits need to be used.
+
+- Concatenation of the digits is not allowed (You can’t use a “2” and “2” to make “22”).
+
+- At no intermediate step in the process can the current running total become negative or involve a fraction.
+
+- Each number can only be used once in the calculation.
+
+I found offcial rules [here](http://datagenetics.com/blog/august32014/index.html).
 
 
 ## Summary Of Project
