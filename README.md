@@ -53,3 +53,20 @@ The application is going to define a function that takes two arguments. The firs
 The function should return the target number and then be able to calculate an equation to reach the number or get as close as possible to the target number.
 
 The use of a negative number or a fraction are not allowed.
+
+## How I Developed the project
+
+Functions
+
+To start the project I first added two lists with the required numbers for the small and large sets according to the rules of the countdown game.
+
+```racket
+(define Smallset (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10))
+(define Largeset (list 25 50 75 100))
+```
+
+I then created a function that would generate a random number between 101 and 999 inclusive. To do this I used the random function using information that I found [here](https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._random%29%29) under section 4.2.2.7 Random Numbers.
+
+```racket
+(define (targetNum) (for ([i 1]) (displayln (random 101 999))))
+```

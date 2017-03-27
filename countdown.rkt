@@ -6,3 +6,16 @@
 (define (targetNum) (for ([i 1]) (displayln (random 101 999))))
 
 (targetNum)
+
+(struct number (int))
+(define ints (list (number 1)
+                   (number 2)
+                   (number 3)))
+
+(define sum 
+  (λ (lst)
+    (cond ((null? lst) 0)
+          (else (+ (number-int (car lst))
+                   (sum (cdr lst)))))))
+
+(sum ints)
