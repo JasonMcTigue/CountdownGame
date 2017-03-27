@@ -70,3 +70,5 @@ I then created a function that would generate a random number between 101 and 99
 ```racket
 (define (targetNum) (for ([i 1]) (displayln (random 101 999))))
 ```
+
+I then added a gitignore file which I found [here](https://github.com/github/gitignore/pull/1616/files)
