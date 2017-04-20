@@ -7,15 +7,38 @@
 
 (targetNum)
 
-(struct number (int))
-(define ints (list (number 1)
-                   (number 2)
-                   (number 3)))
 
-(define sum 
-  (λ (lst)
-    (cond ((null? lst) 0)
-          (else (+ (number-int (car lst))
-                   (sum (cdr lst)))))))
+;Brute force method for calculating all possibilities of two numbers
+(define a 5)
+(define b 25)
+(define t 125)
 
-(sum ints)
+(+ a b)
+(+ b a)
+(- a b)
+(- b a)
+(* a b)
+(* b a)
+(/ a b)
+(/ b a)
+
+
+;Reverse polish notation from class
+(define start (list  -1 -1 -1 -1 1 1 1 1 1))
+
+(define per8(remove-duplicates(permutations start)))
+
+(define (to-rpn l) append (list 1 1) l (list -1))
+(car per8)
+(to-rpn (car per8))
+
+(map to-rpn per8)
+
+
+
+
+
+
+
+
+
