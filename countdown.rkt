@@ -24,7 +24,8 @@
 
 
 ;Reverse polish notation from class
-(define start (list  -1 -1 -1 -1 1 1 1 1 1))
+;(define start (list  -1 -1 -1 -1 1 1 1 1 1))
+(define start (list  '+ '- '* '/ 1 1 1 1 1))
 
 ;This function removes duplicates from the list
 (define per8(remove-duplicates(permutations start)))
@@ -49,6 +50,14 @@
       (if (< s 2)
           #f
           (#t)))))
+
+;test
+(define nos(list 100 50 10 6 5 1))
+(permutations nos)
+
+(define ops ( list '+ '- '* '/))
+(cartesian-product ops ops ops ops ops)
+
 
 
 
