@@ -23,52 +23,22 @@
 (/ b a)
 
 
+;Reverse polish notation from class
+(define start (list  -1 -1 -1 -1 1 1 1 1 1))
 
-(define nums (list 5 25))
-(define total 125)
+(define per8(remove-duplicates(permutations start)))
 
-; List of operators
+(define (to-rpn l) append (list 1 1) l (list -1))
+(car per8)
+(to-rpn (car per8))
 
-(define ops (list + * - /))
+(map to-rpn per8)
 
-; sum
-(define (sum l)
-  (+ (car l) (cdr l)))
 
-; multiplication
-(define (multiply l)
-  (* (car l) (cdr l)))
 
-; subtraction
-(define (subtract l)
-  (- (car l) (cdr l)))
 
-; division
-(define (divide l)
-  (/ (car l) (cdr l)))
 
-; revers
-(define (revwcons-aux l a)
-  (if (null? l)
-      a
-      (revwcons-aux (cdr l) (cons (car l) a))))
 
-; Let say we are using brute-force algorithm
-; then function will take list of two numbers,
-; and list of operators
-; but first we'll define the function for perform all operations
-
-(define (calc_func oprs l res)
-  (if (null? oprs) res
-      (calc_func (cdr oprs) l (cons ((car oprs) (car l) (car (cdr l))) res))))
-
-; This function takes as arguments:
-; - list of operators eg.(+ * / -)
-; - list of two numbers eg.(6 3)
-; - empty list
-
-(define l1 (list 5 25))
-(calc_func ops l1 null)
 
 
 
