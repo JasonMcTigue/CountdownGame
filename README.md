@@ -10,9 +10,9 @@
 ## How to run
 Download (Racket)[https://download.racket-lang.org/] and install it on your machine.
 
-Open Dr.Racket 
-Press Ctrl + R to to run the program
-To calculate an RPN type an expression like (calculate-RPN '(3.0 4 2 * 1 5 - 2 3 ^ ^ / +))
+- Open Dr.Racket 
+- Press Ctrl + R to to run the program
+- To calculate an RPN type an expression like (calculate-RPN '(3.0 4 2 * 1 5 - 2 3 ^ ^ / +))
 
 ####  **Rules**
 
