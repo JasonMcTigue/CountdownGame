@@ -13,26 +13,29 @@
 (define b 25)
 (define t 125)
 
-;(+ a b)
-;(+ b a)
-;(- a b)
-;(- b a)
-;(* a b)
-;(* b a)
-;(/ a b)
-;(/ b a)
+(define l(list (+ a b)
+(+ b a)
+(- a b)
+(- b a)
+(* a b)
+(* b a)
+(/ a b)
+(/ b a)))
+
+(list l)
 
 
 ;Reverse polish notation from class
 ;(define start (list  -1 -1 -1 -1 1 1 1 1 1))
 (define start (list  '+ '- '* '/ 1 1 1 1 1))
 
+
 ;This function removes duplicates from the list
 (define per8(remove-duplicates(permutations start)))
 
 ;two 1s are added to the front of the list and then a -1 is added to the  end of the list
-(define (to-rpn l) (append (list 1 1) l (list -1)))
-;(car per8)
+(define (to-rpn l) (append (list 1 1) l (list '+ '- '* '/)))
+(car per8)
 
 (to-rpn (car per8))
 
@@ -58,8 +61,19 @@
 (define ops ( list '+ '- '* '/))
 (cartesian-product ops ops ops ops ops)
 
-
-
+;(calculate-RPN '(3.0 4 2 * 1 5 - 2 3 ^ ^ / +)) https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket
+(define (calculate-RPN expr)
+  (for/fold ([stack '()]) ([token expr])
+    (printf "~a\t -> ~a~N" token stack)
+    (match* (token stack)
+     [((? number? n) s) (cons n s)]
+     [('+ (list x y s ___)) (cons (+ x y) s)]
+     [('- (list x y s ___)) (cons (- y x) s)]
+     [('* (list x y s ___)) (cons (* x y) s)]
+     [('/ (list x y s ___)) (cons (/ y x) s)]
+     [('^ (list x y s ___)) (cons (expt y x) s)]
+     [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
+                   (reverse (cons x s)))])))
 
 
 

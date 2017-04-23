@@ -72,3 +72,56 @@ I then created a function that would generate a random number between 101 and 99
 ```
 
 I then added a gitignore file which I found [here](https://github.com/github/gitignore/pull/1616/files)
+
+To check for all possibilities of two numbers I added a brute force method
+
+```racket
+(define a 5)
+(define b 25)
+(define t 125)
+
+(define l(list (+ a b)
+(+ b a)
+(- a b)
+(- b a)
+(* a b)
+(* b a)
+(/ a b)
+(/ b a)))
+
+(list l)
+```
+
+## Reverse Polish notation
+The nexr step I tried was to implement Reverse Polish notation (RPN) to the project. RPN is a mathematical notation in which every operator follows all of its operands, in contrast to Polish notation (PN), which puts the operator before its operands. It is also known as postfix notation. It does not need any parentheses as long as each operator has a fixed number of operands.
+
+An example of a fix notation expression would be as follows:
+```
+5 + ((1 + 2) × 4) − 3
+
+```
+
+Can be written down like this in RPN:
+
+```
+5 1 2 + 4 × + 3 −
+```
+
+The difference between the RPN form and the infix form is simply that the operator is written after its two operands, rather than between
+them.
+
+How the expression is evaluated on the stack
+
+| Input  | Action  | Stack  | Notes  |
+|---|---|---|---|
+| 5 |Operand   | 5 | Push onto stack  |
+| 1 |Operand   | 1 5 | Push onto stack  |
+| 2 |Operand   |  2 1 5 |  Push onto stack |
+| + |Operand   |  3 5 | Pop the two operands (1, 2), calculate (1 + 2 = 3) and push onto stack.  |
+| 4 |Operand   | 4 3 5  | Push onto stack.  |
+| * |Operand   | 12 5  | Pop the two operands (3, 4), calculate (3 * 4 = 12) and push onto stack.  |
+| + |Operand   | 17  |Pop the two operands (5, 12), calculate (5 + 12 = 17) and push onto stack.   |
+| 3 |Operand   | 3 17  |  Push onto stack. |
+| - |Operand  | 14  | Pop the two operands (17, 3), calculate (17 - 3 = 14) and push onto stack.  |
+|   |Result  |  14 |   |
+
