@@ -125,3 +125,31 @@ How the expression is evaluated on the stack
 | - |Operand  | 14  | Pop the two operands (17, 3), calculate (17 - 3 = 14) and push onto stack.  |
 |   |Result  |  14 |   |
 
+Example found [here](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+
+The next step I done was to add all the noets from class to create a rpn function. I created a list that contained -1's and 1's. -1's represened the operators '+ - * /' and 1's represented the numbers. If I run the following function: 
+
+```racket
+(define start (list  -1 -1 -1 -1 1 1 1 1 1))
+(permutations start)
+```
+
+It will create over 40 million combinations so for this reason you need to add the remove-duplicates funtion.
+
+```racket
+(define per8(remove-duplicates(permutations start)))
+```
+For RPN to work there needs to be atleat two numbers on the stack before an operator is applied. To achieve this the following function is required:
+
+```racket
+(define (to-rpn l) (append (list 1 1) l (list -1)))
+(car per8)
+(to-rpn (car per8))
+```
+This adds two 1s to the front of the list and then adds a -1(opperator) to the end of the list. This assures that there are always two numbers and one operator on the stack.
+
+Next I used the map funtions which combines the RPN funtion and perumation function together.
+```racket
+(map to-rpn per8)
+```
+
